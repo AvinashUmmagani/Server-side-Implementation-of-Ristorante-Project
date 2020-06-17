@@ -2,10 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const leaderRouter = express.Router();
-const leaderRouterId = express.Router();
+
 
 leaderRouter.use(bodyParser.json());
-leaderRouterId.use(bodyParser.json());
 
 
 leaderRouter.route('/')
@@ -29,7 +28,7 @@ leaderRouter.route('/')
 });
 
 
-leaderRouterId.route('/:leaderID')
+leaderRouter.route('/:leaderID')
 .all((req,res,next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -49,7 +48,6 @@ leaderRouterId.route('/:leaderID')
     res.end('Deleting leader : ' + req.params.leaderID);
 });
 
-module.exports.leaderRouter = leaderRouter;
-module.exports.leaderRouterId = leaderRouterId;
+module.exports = leaderRouter;
 
 

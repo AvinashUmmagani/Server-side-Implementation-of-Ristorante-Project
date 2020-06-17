@@ -38,12 +38,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/dishes', dishRouter.dishRouter);
-app.use('/dishes', dishRouter.dishRouterId);
-app.use('/promotions', promoRouter.promoRouter);
-app.use('/promotions', promoRouter.promoRouterId);
-app.use('/leaders', leaderRouter.leaderRouter);
-app.use('/leaders', leaderRouter.leaderRouterId);
+app.use('/dishes', dishRouter);
+app.use('/promotions', promoRouter);
+app.use('/leaders', leaderRouter);
 
 
 // catch 404 and forward to error handler
