@@ -11,6 +11,9 @@ var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
 
+const uploadRouter = require('./routes/uploadRouter');
+
+
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 
@@ -63,6 +66,7 @@ app.use(passport.session());
 
 
 app.use('/', indexRouter);
+app.use('/imageUpload',uploadRouter);
 app.use('/users', usersRouter);
 
 function auth (req, res, next) {
